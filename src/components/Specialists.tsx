@@ -88,7 +88,7 @@ const Specialists = () => {
                   <div key={idx} className="specialist-item">
                     <div className="specialist-info">
                       <h4>{doc.name}</h4>
-                      {doc.specialty && <span className="specialty-tag">{doc.specialty}</span>}
+                      {'specialty' in doc && doc.specialty && <span className="specialty-tag">{doc.specialty}</span>}
                     </div>
                     <div className="specialist-schedule">
                       <Calendar size={14} />
