@@ -1,0 +1,126 @@
+.insurance-section {
+  padding: var(--section-padding);
+  background-color: var(--clr-primary);
+  color: var(--clr-surface);
+  position: relative;
+}
+
+.insurance-container {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.insurance-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .insurance-header {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.insurance-icon-wrapper {
+  background: rgba(23, 53, 221, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 72px;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.text-white {
+  color: #FFFFFF !important;
+}
+
+.insurance-lead {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  max-width: 580px;
+  margin-top: 0.75rem;
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+.insurance-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .insurance-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.insurance-card {
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  padding: 2.25rem;
+  border-radius: 28px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+}
+
+.insurance-card h3 {
+  color: var(--clr-primary);
+  font-size: 1.35rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.provider-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+@media (min-width: 480px) {
+  .provider-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.provider-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+  font-weight: 500;
+  font-family: var(--font-body);
+  line-height: 1.4;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  background-color: var(--clr-accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .insurance-card {
+    padding: 1.75rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .provider-list {
+    grid-template-columns: 1fr;
+  }
+}

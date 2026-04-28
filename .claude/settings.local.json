@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(curl -o kute-hospital-logo.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Kute-Hospital.png\")",
+      "Bash(curl -o kute-hospital-photo.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-353-1.png\")",
+      "Bash(curl -s \"https://www.kutehospital.com/\")",
+      "Bash(curl -o kutedr1.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/kutedr1.png\")",
+      "Bash(curl -o kute-ss345.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-345.png\")",
+      "Bash(curl -o kute-ss351.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-351.png\")",
+      "Bash(curl -o kute-ss359.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-359.png\")"
+    ]
+  }
+}
