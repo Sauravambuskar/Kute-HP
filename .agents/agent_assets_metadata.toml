@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "NAuJ2LlAmzAaOY_M5Qu6Q"
+uri = "file://artifacts/kute-hospital/public/images/hospital-hero.png"
+type = "image"
+title = "Hospital building exterior"
+
+[[generated]]
+id = "HRyakdBVRb2tIaaz8vj2Z"
+uri = "file://artifacts/kute-hospital/public/images/doctor-portrait.png"
+type = "image"
+title = "Doctor portrait"
