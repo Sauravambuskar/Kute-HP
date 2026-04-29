@@ -1,0 +1,388 @@
+<!-- ============================================================
+   KUTE HOSPITAL — HOME PAGE
+   Paste this ENTIRE block into Elementor > HTML Widget
+   Header & Footer are handled by Elementor Theme Builder
+   ============================================================ -->
+
+<style>
+/* ── Reset & Base ── */
+.kh-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+.kh-wrap { font-family: 'Inter', sans-serif; color: #1a2332; }
+
+/* ── Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+/* ── CSS Variables ── */
+.kh-wrap {
+  --navy: #0d1b2a;
+  --teal: #0ea5e9;
+  --gold: #c19f62;
+  --white: #ffffff;
+  --light-bg: #f0f6ff;
+  --card-bg: #ffffff;
+  --text-muted: #64748b;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(14,165,233,0.10);
+}
+
+/* ── Section base ── */
+.kh-section { padding: 80px 0; }
+.kh-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.kh-text-center { text-align: center; }
+.kh-subtitle {
+  display: inline-block;
+  background: linear-gradient(135deg, #0ea5e9 0%, #c19f62 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.kh-title { font-family: 'Instrument Serif', serif; font-size: clamp(2rem,4vw,2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+.kh-accent { color: var(--teal); }
+.kh-lead { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+
+/* ────────────────────────────────────────────
+   1. HERO
+──────────────────────────────────────────── */
+.kh-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: var(--navy);
+}
+.kh-hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.35;
+}
+.kh-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(13,27,42,0.92) 0%, rgba(14,165,233,0.18) 100%);
+}
+.kh-hero-content {
+  position: relative; z-index: 2;
+  max-width: 1180px; margin: 0 auto; padding: 0 24px;
+  animation: khFadeUp 0.9s ease both;
+}
+@keyframes khFadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+
+.kh-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.4);
+  color: #7dd3fc; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+  padding: 6px 16px; border-radius: 999px; margin-bottom: 28px;
+}
+.kh-badge-dot {
+  width: 8px; height: 8px; background: #0ea5e9;
+  border-radius: 50%; display: inline-block;
+  animation: khPulse 1.5s ease-in-out infinite;
+}
+@keyframes khPulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.4);} }
+
+.kh-hero-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.8rem,6vw,5rem);
+  color: #ffffff; line-height: 1.1; margin-bottom: 20px;
+}
+.kh-hero-accent { color: var(--teal); font-style: italic; }
+.kh-hero-desc { color: #cbd5e1; font-size: 1.1rem; max-width: 560px; line-height: 1.8; margin-bottom: 36px; }
+
+.kh-hero-btns { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 52px; }
+.kh-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #fff; font-weight: 700; font-size: 0.95rem;
+  padding: 14px 28px; border-radius: 999px;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(14,165,233,0.4);
+}
+.kh-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(14,165,233,0.5); color:#fff; }
+.kh-btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: #ffffff; font-weight: 600; font-size: 0.95rem;
+  padding: 14px 28px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.4);
+  text-decoration: none; transition: all 0.2s;
+}
+.kh-btn-outline:hover { background: rgba(255,255,255,0.1); color:#fff; }
+
+.kh-stats { display: flex; flex-wrap: wrap; gap: 24px; }
+.kh-stat-card {
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius); padding: 20px 28px; text-align: center; min-width: 120px;
+  transition: transform 0.2s;
+}
+.kh-stat-card:hover { transform: translateY(-4px); }
+.kh-stat-card h3 { font-size: 2rem; font-weight: 800; color: var(--teal); font-family:'Instrument Serif',serif; }
+.kh-stat-card p { color: #94a3b8; font-size: 0.8rem; margin-top: 4px; }
+
+/* ────────────────────────────────────────────
+   2. SERVICES PREVIEW
+──────────────────────────────────────────── */
+.kh-services { background: var(--light-bg); }
+.kh-services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px; margin-top: 48px;
+}
+.kh-service-card {
+  background: var(--card-bg); border-radius: var(--radius);
+  padding: 32px; box-shadow: var(--shadow);
+  border: 1px solid rgba(14,165,233,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; overflow: hidden;
+}
+.kh-service-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.kh-service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(14,165,233,0.18); }
+.kh-service-card:hover::before { transform: scaleX(1); }
+.kh-service-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(14,165,233,0.05));
+  border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin-bottom: 20px;
+}
+.kh-service-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.kh-service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+
+/* ────────────────────────────────────────────
+   3. ABOUT PREVIEW
+──────────────────────────────────────────── */
+.kh-about { background: #fff; }
+.kh-about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: center;
+}
+@media(max-width:768px){ .kh-about-grid{ grid-template-columns:1fr; gap:40px; } }
+.kh-about-img-wrap { position: relative; }
+.kh-about-img {
+  width: 100%; border-radius: 24px; object-fit: cover;
+  box-shadow: 0 20px 60px rgba(14,165,233,0.15);
+}
+.kh-about-float {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(13,27,42,0.85); backdrop-filter: blur(16px);
+  border: 1px solid rgba(14,165,233,0.3);
+  border-radius: 14px; padding: 16px 24px; color:#fff; text-align: center;
+}
+.kh-about-float .year { font-size: 2rem; font-weight: 800; color: var(--teal); display:block; }
+.kh-about-float .label { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+.kh-about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+.kh-values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.kh-value-item {
+  background: var(--light-bg); border-radius: 12px; padding: 20px;
+  border-left: 3px solid var(--teal);
+}
+.kh-value-item h4 { font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.kh-value-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ────────────────────────────────────────────
+   4. TESTIMONIALS
+──────────────────────────────────────────── */
+.kh-testimonials { background: var(--light-bg); }
+.kh-testimonials-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px; margin-top: 48px;
+}
+.kh-tcard {
+  background: #fff; border-radius: var(--radius); padding: 32px;
+  box-shadow: var(--shadow); border: 1px solid rgba(14,165,233,0.08);
+  transition: transform 0.3s;
+}
+.kh-tcard:hover { transform: translateY(-4px); }
+.kh-stars { color: var(--gold); font-size: 1rem; margin-bottom: 14px; }
+.kh-tcard p { color: var(--text-muted); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+.kh-reviewer { display: flex; align-items: center; gap: 12px; }
+.kh-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
+}
+.kh-reviewer h4 { font-weight: 600; color: var(--navy); font-size: 0.95rem; }
+
+/* ────────────────────────────────────────────
+   5. CTA BANNER
+──────────────────────────────────────────── */
+.kh-cta {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+  padding: 72px 0; text-align: center;
+}
+.kh-cta h2 { font-family:'Instrument Serif',serif; font-size: clamp(2rem,4vw,3rem); color:#fff; margin-bottom: 16px; }
+.kh-cta p { color: #94a3b8; font-size: 1.05rem; margin-bottom: 36px; max-width: 500px; margin-left:auto; margin-right:auto; }
+.kh-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+
+/* ── Responsive ── */
+@media(max-width:600px){
+  .kh-hero { min-height: 100vh; }
+  .kh-hero-btns, .kh-stats { flex-direction: column; }
+  .kh-stat-card { min-width: 100%; }
+  .kh-values-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="kh-wrap">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="kh-hero">
+    <img class="kh-hero-img"
+      src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"
+      alt="Kute Hospital">
+    <div class="kh-hero-overlay"></div>
+    <div class="kh-hero-content">
+      <div class="kh-badge">
+        <span class="kh-badge-dot"></span>
+        Trusted Healthcare Since 2010
+      </div>
+      <h1 class="kh-hero-title">Caring for You,<br><span class="kh-hero-accent">Always.</span></h1>
+      <p class="kh-hero-desc">Kute Hospital &amp; Laparoscopy Centre — bringing advanced multispecialty care to Sangamner. World-class treatments, quick appointments, and compassionate support when it matters most.</p>
+      <div class="kh-hero-btns">
+        <a href="/book-appointment" class="kh-btn-primary">Book Appointment ➜</a>
+        <a href="tel:+918888882225" class="kh-btn-outline">📞 Emergency: +91 88888 82225</a>
+      </div>
+      <div class="kh-stats">
+        <div class="kh-stat-card"><h3>14+</h3><p>Years Experience</p></div>
+        <div class="kh-stat-card"><h3>24/7</h3><p>Emergency Services</p></div>
+        <div class="kh-stat-card"><h3>10+</h3><p>Specialist Doctors</p></div>
+        <div class="kh-stat-card"><h3>30+</h3><p>Insurance Partners</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES PREVIEW ═══ -->
+  <section class="kh-section kh-services">
+    <div class="kh-container">
+      <div class="kh-text-center">
+        <span class="kh-subtitle">What We Offer</span>
+        <h2 class="kh-title">Our <span class="kh-accent">Specialities</span></h2>
+        <p class="kh-lead">World-class treatments across multiple specialities — right here in Sangamner.</p>
+      </div>
+      <div class="kh-services-grid">
+        <div class="kh-service-card">
+          <div class="kh-service-icon">🚨</div>
+          <h3>Emergency Department</h3>
+          <p>Round-the-clock emergency care with a rapid-response team, advanced trauma bays, and direct access to surgery.</p>
+        </div>
+        <div class="kh-service-card">
+          <div class="kh-service-icon">✂️</div>
+          <h3>Laparoscopic Surgery</h3>
+          <p>Expert minimally invasive keyhole surgery delivering faster recovery, less pain, and minimal scarring.</p>
+        </div>
+        <div class="kh-service-card">
+          <div class="kh-service-icon">✨</div>
+          <h3>Plastic &amp; Reconstructive Surgery</h3>
+          <p>Restoring form, function, and confidence through expert reconstructive and aesthetic surgical care.</p>
+        </div>
+        <div class="kh-service-card">
+          <div class="kh-service-icon">🩺</div>
+          <h3>Cancer Surgery</h3>
+          <p>Specialised surgical oncology with a multidisciplinary approach for the best possible cancer outcomes.</p>
+        </div>
+        <div class="kh-service-card">
+          <div class="kh-service-icon">🦴</div>
+          <h3>Orthopaedic &amp; Trauma</h3>
+          <p>Advanced care for fractures, joint conditions, sports injuries, and spinal disorders by expert orthopaedic surgeons.</p>
+        </div>
+        <div class="kh-service-card">
+          <div class="kh-service-icon">❤️</div>
+          <h3>Cardiology</h3>
+          <p>Comprehensive heart care, diagnostics, and super-specialty interventions for all cardiac conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT PREVIEW ═══ -->
+  <section class="kh-section kh-about">
+    <div class="kh-container">
+      <div class="kh-about-grid">
+        <div class="kh-about-img-wrap">
+          <img class="kh-about-img"
+            src="https://images.unsplash.com/photo-1551076805-e18690c5e561?q=80&w=900&auto=format&fit=crop"
+            alt="Kute Hospital Team">
+          <div class="kh-about-float">
+            <span class="year">2010</span>
+            <span class="label">Founded · Serving Rural Communities</span>
+          </div>
+        </div>
+        <div class="kh-about-text">
+          <span class="kh-subtitle">Our Story</span>
+          <h2 class="kh-title">Committed to <span class="kh-accent">Excellence</span></h2>
+          <p>Welcome to Kute Hospital, inspired by the vision of Mr. Bhausaheb Damodar Kute. His dedication to improving community health laid the foundation for our Hospital &amp; Dr. Pradeep Kute's leadership plays a significant role in its development.</p>
+          <p>Established on June 13, 2010, Kute Hospital and Laparoscopy Centre aims to bring advanced medical care to rural areas, providing treatments typically found only in big cities.</p>
+          <div class="kh-values-grid">
+            <div class="kh-value-item">
+              <h4>🎯 Our Mission</h4>
+              <p>To be the best Multispeciality &amp; tertiary care center in India imparting high quality care.</p>
+            </div>
+            <div class="kh-value-item">
+              <h4>💡 Our Vision</h4>
+              <p>Quality Treatment at rational cost. Providing all Services Under one roof with continuous improvement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="kh-section kh-testimonials">
+    <div class="kh-container">
+      <div class="kh-text-center">
+        <span class="kh-subtitle">Patient Feedback</span>
+        <h2 class="kh-title">What Our <span class="kh-accent">Patients Say</span></h2>
+        <p class="kh-lead">Kute Hospital, the premier emergency facility in Sangamner City, welcomes all patients with top-notch services.</p>
+      </div>
+      <div class="kh-testimonials-grid">
+        <div class="kh-tcard">
+          <div class="kh-stars">★★★★★</div>
+          <p>"The cleanliness maintained by the hospital. Excellent service and ambiance, Doctors panel is very strong. The best hospital in Sangamner city."</p>
+          <div class="kh-reviewer"><div class="kh-avatar">R</div><h4>Rakesh Shinde</h4></div>
+        </div>
+        <div class="kh-tcard">
+          <div class="kh-stars">★★★★★</div>
+          <p>"Dr. Pradeep Kute was fantastic. Knowledgeable, caring, and informative. Felt at ease and confident in receiving expert medical care. Highly recommended."</p>
+          <div class="kh-reviewer"><div class="kh-avatar">V</div><h4>Vaishanvi Murtadak</h4></div>
+        </div>
+        <div class="kh-tcard">
+          <div class="kh-stars">★★★★★</div>
+          <p>"One of the standout features of Kute Hospital is its state-of-the-art equipment, ensuring accurate diagnostics and effective treatments."</p>
+          <div class="kh-reviewer"><div class="kh-avatar">S</div><h4>Somnath</h4></div>
+        </div>
+        <div class="kh-tcard">
+          <div class="kh-stars">★★★★★</div>
+          <p>"Thanks to the nurses, pre-op staff, and theater staff for their kindness and proficiency during my surgery. Grateful for everyone's care."</p>
+          <div class="kh-reviewer"><div class="kh-avatar">S</div><h4>Sachin</h4></div>
+        </div>
+        <div class="kh-tcard">
+          <div class="kh-stars">★★★★★</div>
+          <p>"Kute Hospital: Where compassionate care and skilled professionals come together to ensure your well-being every step of the way."</p>
+          <div class="kh-reviewer"><div class="kh-avatar">A</div><h4>Anuj Sharma</h4></div>
+        </div>
+        <div class="kh-tcard">
+          <div class="kh-stars">★★★★★</div>
+          <p>"The premier emergency facility in Sangamner City and Taluka, welcomes all patients with top-notch services available 24/7."</p>
+          <div class="kh-reviewer"><div class="kh-avatar">A</div><h4>Aniket Jagatap</h4></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="kh-cta">
+    <div class="kh-container">
+      <h2>Need Medical Assistance?</h2>
+      <p>Book an appointment online or call our helpline — we are available 24 hours a day, 7 days a week.</p>
+      <div class="kh-cta-btns">
+        <a href="/book-appointment" class="kh-btn-primary">Book Appointment ➜</a>
+        <a href="tel:+918888882225" class="kh-btn-outline">📞 +91 88888 82225</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .kh-wrap -->

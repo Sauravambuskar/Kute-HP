@@ -40,16 +40,38 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
 }
 
-.category-header {
-  background: rgba(18, 27, 96, 0.04);
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+.category-image-wrapper {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
 }
 
-.category-header h3 {
-  font-size: 1.15rem;
-  color: var(--clr-primary);
+.category-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.specialist-category-card:hover .category-img {
+  transform: scale(1.06);
+}
+
+.category-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.18) 60%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem 1.25rem;
+}
+
+.category-img-overlay h3 {
+  font-size: 1.05rem;
+  color: #fff;
   margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 .specialist-list {
@@ -89,8 +111,8 @@
 
 .specialty-tag {
   font-size: 0.7rem;
-  background: rgba(23, 53, 221, 0.08);
-  color: var(--clr-accent);
+  background: rgba(80, 80, 80, 0.1);
+  color: #555;
   padding: 0.2rem 0.6rem;
   border-radius: 100px;
   font-weight: 600;
@@ -108,7 +130,7 @@
 }
 
 .specialist-schedule svg {
-  color: var(--clr-accent);
+  color: #888;
   flex-shrink: 0;
 }
 

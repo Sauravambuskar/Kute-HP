@@ -1,0 +1,264 @@
+<!-- ============================================================
+   KUTE HOSPITAL — SERVICES PAGE
+   Paste this ENTIRE block into Elementor > HTML Widget
+   Header & Footer are handled by Elementor Theme Builder
+   ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+.kh-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+.kh-wrap { font-family:'Inter',sans-serif; color:#1a2332; --navy:#0d1b2a; --teal:#0ea5e9; --gold:#c19f62; --light-bg:#f0f6ff; --muted:#64748b; --radius:16px; --shadow:0 4px 24px rgba(14,165,233,.10); }
+
+.kh-section { padding: 80px 0; }
+.kh-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.kh-text-center { text-align: center; }
+.kh-subtitle { display:inline-block; background:linear-gradient(135deg,#0ea5e9,#c19f62); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.kh-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); color:var(--navy); line-height:1.2; margin-bottom:16px; }
+.kh-accent { color:var(--teal); }
+.kh-lead { color:var(--muted); font-size:1.05rem; max-width:640px; margin:0 auto 40px; line-height:1.7; }
+
+/* ── PAGE HERO ── */
+.kh-page-hero { background:linear-gradient(135deg,var(--navy) 0%,#1e3a5f 100%); padding:80px 0 60px; text-align:center; }
+.kh-page-hero h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.2rem,5vw,3.5rem); color:#fff; margin-bottom:16px; }
+.kh-page-hero p { color:#94a3b8; font-size:1.05rem; max-width:540px; margin:0 auto; line-height:1.7; }
+.kh-breadcrumb { display:flex; justify-content:center; gap:8px; align-items:center; color:#64748b; font-size:.85rem; margin-bottom:20px; }
+.kh-breadcrumb a { color:#0ea5e9; text-decoration:none; }
+
+/* ── SERVICE CARDS (big) ── */
+.kh-srv-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:32px; margin-top:56px; }
+.kh-srv-card {
+  background:#fff; border-radius:24px; overflow:hidden;
+  box-shadow:var(--shadow); border:1px solid rgba(14,165,233,.08);
+  transition:transform .3s, box-shadow .3s;
+}
+.kh-srv-card:hover { transform:translateY(-8px); box-shadow:0 16px 48px rgba(14,165,233,.2); }
+.kh-srv-img { width:100%; height:220px; object-fit:cover; display:block; }
+.kh-srv-body { padding:28px; }
+.kh-srv-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(14,165,233,.1); color:var(--teal); font-size:.75rem; font-weight:700; padding:4px 12px; border-radius:999px; margin-bottom:14px; letter-spacing:.5px; }
+.kh-srv-body h3 { font-family:'Instrument Serif',serif; font-size:1.35rem; color:var(--navy); margin-bottom:10px; }
+.kh-srv-body p { color:var(--muted); font-size:.9rem; line-height:1.65; margin-bottom:18px; }
+.kh-benefits-list { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:22px; }
+.kh-benefits-list li { display:flex; align-items:center; gap:8px; font-size:.85rem; color:var(--muted); }
+.kh-benefits-list li::before { content:"✓"; color:var(--teal); font-weight:700; flex-shrink:0; }
+.kh-srv-link { display:inline-flex; align-items:center; gap:6px; color:var(--teal); font-weight:600; font-size:.9rem; text-decoration:none; border-bottom:2px solid transparent; transition:border-color .2s; }
+.kh-srv-link:hover { border-color:var(--teal); color:var(--teal); }
+
+/* ── STATS BANNER ── */
+.kh-stats-bar { background:linear-gradient(135deg,var(--navy),#1e3a5f); padding:60px 0; }
+.kh-stats-row { display:flex; flex-wrap:wrap; justify-content:center; }
+.kh-stat-item { text-align:center; padding:24px 48px; border-right:1px solid rgba(255,255,255,.1); }
+.kh-stat-item:last-child { border-right:none; }
+.kh-stat-item h3 { font-family:'Instrument Serif',serif; font-size:3rem; font-weight:800; color:var(--teal); margin-bottom:4px; }
+.kh-stat-item p { color:#94a3b8; font-size:.85rem; }
+@media(max-width:600px){ .kh-stat-item{ border-right:none; border-bottom:1px solid rgba(255,255,255,.1); width:50%; } }
+
+/* ── INSURANCE SECTION ── */
+.kh-insurance { background:var(--navy); padding:80px 0; }
+.kh-ins-header { display:flex; flex-wrap:wrap; align-items:flex-start; gap:32px; margin-bottom:48px; }
+.kh-ins-icon { width:64px; height:64px; background:rgba(14,165,233,.15); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:2rem; flex-shrink:0; }
+.kh-ins-header-text .kh-subtitle { color:#64748b; }
+.kh-ins-header-text h2 { font-family:'Instrument Serif',serif; font-size:2.2rem; color:#fff; margin-bottom:10px; }
+.kh-ins-header-text p { color:#94a3b8; font-size:.95rem; line-height:1.6; max-width:560px; }
+.kh-ins-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+@media(max-width:640px){ .kh-ins-grid{ grid-template-columns:1fr; } }
+.kh-ins-card { background:rgba(255,255,255,.05); border:1px solid rgba(14,165,233,.15); border-radius:var(--radius); padding:28px; }
+.kh-ins-card h3 { color:#fff; font-size:1.05rem; font-weight:700; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.1); }
+.kh-provider-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.kh-provider-list li { display:flex; align-items:center; gap:10px; color:#94a3b8; font-size:.85rem; }
+.kh-provider-list li::before { content:"●"; color:var(--teal); font-size:.5rem; flex-shrink:0; }
+
+/* ── CTA ── */
+.kh-cta { background:linear-gradient(135deg,#1e3a5f,var(--navy)); padding:72px 0; text-align:center; }
+.kh-cta h2 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:16px; }
+.kh-cta p { color:#94a3b8; font-size:1.05rem; margin-bottom:36px; max-width:500px; margin-left:auto; margin-right:auto; }
+.kh-cta-btns { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+.kh-btn-primary { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#0ea5e9,#0284c7); color:#fff; font-weight:700; font-size:.95rem; padding:14px 28px; border-radius:999px; border:none; cursor:pointer; text-decoration:none; transition:transform .2s,box-shadow .2s; box-shadow:0 4px 20px rgba(14,165,233,.4); }
+.kh-btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(14,165,233,.5); color:#fff; }
+.kh-btn-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; color:#fff; font-weight:600; font-size:.95rem; padding:14px 28px; border-radius:999px; border:1px solid rgba(255,255,255,.4); text-decoration:none; transition:all .2s; }
+.kh-btn-outline:hover { background:rgba(255,255,255,.1); color:#fff; }
+</style>
+
+<div class="kh-wrap">
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="kh-page-hero">
+    <div class="kh-container">
+      <div class="kh-breadcrumb"><a href="/">Home</a> / Services</div>
+      <span class="kh-subtitle">What We Offer</span>
+      <h1>Our <span style="color:#0ea5e9;font-style:italic;">Specialities</span></h1>
+      <p>World-class treatments across multiple specialities — bringing city-level expertise to Sangamner.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE CARDS ═══ -->
+  <section class="kh-section" style="background:var(--light-bg);">
+    <div class="kh-container">
+      <div class="kh-srv-grid">
+
+        <!-- Emergency -->
+        <div class="kh-srv-card">
+          <img class="kh-srv-img" src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=800&auto=format&fit=crop" alt="Emergency Department">
+          <div class="kh-srv-body">
+            <span class="kh-srv-tag">🚨 24/7 Open</span>
+            <h3>Emergency Department</h3>
+            <p>Round-the-clock emergency care with a rapid-response team, advanced trauma bays, and direct access to surgery.</p>
+            <ul class="kh-benefits-list">
+              <li>24/7 Fully Staffed Emergency</li>
+              <li>Dedicated Trauma &amp; Resuscitation Bays</li>
+              <li>On-site Blood Bank &amp; Laboratory</li>
+              <li>Direct OR &amp; ICU Access</li>
+              <li>Advanced Life Support (ALS) Ready</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Laparoscopic -->
+        <div class="kh-srv-card">
+          <img class="kh-srv-img" src="https://images.unsplash.com/photo-1579154491781-5e199df316aa?q=80&w=800&auto=format&fit=crop" alt="Laparoscopic Surgery">
+          <div class="kh-srv-body">
+            <span class="kh-srv-tag">✂️ Minimally Invasive</span>
+            <h3>Laparoscopic Surgery</h3>
+            <p>Expert minimally invasive keyhole surgery delivering faster recovery, less pain, and minimal scarring.</p>
+            <ul class="kh-benefits-list">
+              <li>Minimal Scarring (3–5 tiny cuts)</li>
+              <li>Significantly Faster Recovery</li>
+              <li>Shorter Hospital Stay (1–2 days)</li>
+              <li>500+ Procedures Performed</li>
+              <li>Day Surgery Options Available</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Plastic Surgery -->
+        <div class="kh-srv-card">
+          <img class="kh-srv-img" src="https://images.unsplash.com/photo-1703809047424-ec4ea5fb6339?q=80&w=800&auto=format&fit=crop" alt="Plastic Surgery">
+          <div class="kh-srv-body">
+            <span class="kh-srv-tag">✨ Reconstructive</span>
+            <h3>Plastic &amp; Reconstructive Surgery</h3>
+            <p>Restoring form, function, and confidence through expert reconstructive and aesthetic surgical care.</p>
+            <ul class="kh-benefits-list">
+              <li>Scar Revision &amp; Keloid Treatment</li>
+              <li>Burn Reconstruction &amp; Skin Grafting</li>
+              <li>Wound Closure &amp; Flap Surgery</li>
+              <li>Dr. Lalit Darle visits every Saturday</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cancer Surgery -->
+        <div class="kh-srv-card">
+          <img class="kh-srv-img" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" alt="Cancer Surgery">
+          <div class="kh-srv-body">
+            <span class="kh-srv-tag">🩺 Oncology</span>
+            <h3>Cancer Surgery</h3>
+            <p>Specialised surgical oncology with a multidisciplinary approach for the best possible cancer outcomes.</p>
+            <ul class="kh-benefits-list">
+              <li>Multidisciplinary Tumour Board Review</li>
+              <li>Curative &amp; Palliative Tumour Excision</li>
+              <li>Biopsy &amp; Histopathology</li>
+              <li>Dr. Vinayak Shenge — Visiting Specialist</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Orthopaedic -->
+        <div class="kh-srv-card">
+          <img class="kh-srv-img" src="https://images.unsplash.com/photo-1631651365457-d52b7b3a7e79?q=80&w=800&auto=format&fit=crop" alt="Orthopaedic">
+          <div class="kh-srv-body">
+            <span class="kh-srv-tag">🦴 Bone &amp; Joint</span>
+            <h3>Orthopaedic &amp; Trauma</h3>
+            <p>Advanced care for fractures, joint conditions, sports injuries, and spinal disorders by expert surgeons.</p>
+            <ul class="kh-benefits-list">
+              <li>Joint Replacement (Hip, Knee, Shoulder)</li>
+              <li>Complex Fracture Fixation (ORIF)</li>
+              <li>Arthroscopic Surgery</li>
+              <li>24/7 Trauma Emergency Coverage</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cardiology -->
+        <div class="kh-srv-card">
+          <img class="kh-srv-img" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop" alt="Cardiology">
+          <div class="kh-srv-body">
+            <span class="kh-srv-tag">❤️ Heart Care</span>
+            <h3>Cardiology</h3>
+            <p>Comprehensive heart care, diagnostics, and super-specialty interventions for all cardiac conditions.</p>
+            <ul class="kh-benefits-list">
+              <li>ECG &amp; 2D Echocardiography</li>
+              <li>Treadmill Stress Test (TMT)</li>
+              <li>Heart Failure Management</li>
+              <li>Visiting Super-Specialist Cardiologists</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <div class="kh-stats-bar">
+    <div class="kh-container">
+      <div class="kh-stats-row">
+        <div class="kh-stat-item"><h3>500+</h3><p>Laparoscopic Procedures</p></div>
+        <div class="kh-stat-item"><h3>24/7</h3><p>Emergency Coverage</p></div>
+        <div class="kh-stat-item"><h3>14+</h3><p>Years Experience</p></div>
+        <div class="kh-stat-item"><h3>30+</h3><p>Insurance Partners</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ INSURANCE / MEDICLAIM ═══ -->
+  <section class="kh-insurance">
+    <div class="kh-container">
+      <div class="kh-ins-header">
+        <div class="kh-ins-icon">🛡️</div>
+        <div class="kh-ins-header-text">
+          <span class="kh-subtitle">Financial Support</span>
+          <h2>Cashless <span style="color:#0ea5e9;">Mediclaim Facility</span></h2>
+          <p>We are tied up with major TPA and Private Insurance companies to provide a hassle-free, cashless treatment experience.</p>
+        </div>
+      </div>
+      <div class="kh-ins-grid">
+        <div class="kh-ins-card">
+          <h3>TPA Providers</h3>
+          <ul class="kh-provider-list">
+            <li>CIGNA TTK</li><li>DHS</li><li>E-MEDITEK</li><li>FHPL</li>
+            <li>HEALTH INDIA</li><li>IFFKO TOKIO</li><li>LIBERTY GEN INS</li>
+            <li>MD INDIA</li><li>MEDI ASIST</li><li>PARAMOUNT</li>
+            <li>VIDAL HEALTH</li><li>VIPUL MEDCORP</li><li>RAKSHA</li>
+            <li>TATA AIG</li><li>MEDI CARE</li>
+          </ul>
+        </div>
+        <div class="kh-ins-card">
+          <h3>Private IC Providers</h3>
+          <ul class="kh-provider-list">
+            <li>ADITYA BIRLA HEALTH INSURANCE</li>
+            <li>APOLLO MUNICH HEALTH INSURANCE</li>
+            <li>RELIANCE GENERAL INSURANCE</li>
+            <li>BAJAJ ALLIANZ</li><li>CHOLMANDALAM</li>
+            <li>FUTURE GENERAL</li><li>HDFC ERGO</li>
+            <li>ICICI LOMBARD</li><li>RELIGARE</li>
+            <li>STAR HEALTH</li><li>UNIVERSAL SOMPO</li>
+            <li>MAX BUPA</li><li>ERICSON TPA</li>
+            <li>ROTHSHIELD TPA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="kh-cta">
+    <div class="kh-container">
+      <h2>Need a Consultation?</h2>
+      <p>Book an appointment with our specialists — available online or by phone, 24/7.</p>
+      <div class="kh-cta-btns">
+        <a href="/book-appointment" class="kh-btn-primary">Book Appointment ➜</a>
+        <a href="tel:+918888882225" class="kh-btn-outline">📞 +91 88888 82225</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .kh-wrap -->

@@ -5,6 +5,7 @@ import './Specialists.css';
 const specialists = [
   {
     category: "Brain & Spine Surgeon",
+    image: "https://images.unsplash.com/photo-1516069677018-378515003435?q=80&w=800&auto=format&fit=crop",
     doctors: [
       { name: "Dr. Uday Bade", schedule: "Every Tuesday, Friday & Sunday" },
       { name: "Dr. Anil Jadhav", schedule: "1st & 3rd Friday" },
@@ -13,6 +14,7 @@ const specialists = [
   },
   {
     category: "Surgical Gastroenterologist",
+    image: "https://images.unsplash.com/photo-1551076805-e18690c5e561?q=80&w=800&auto=format&fit=crop",
     doctors: [
       { name: "Dr. Prakash Valse", schedule: "On call" },
       { name: "Dr. Prashant Patil", schedule: "3rd Monday" },
@@ -21,6 +23,7 @@ const specialists = [
   },
   {
     category: "Neurosurgeon",
+    image: "https://images.unsplash.com/photo-1579154491781-5e199df316aa?q=80&w=800&auto=format&fit=crop",
     doctors: [
       { name: "Dr. Vijay Ghuge", schedule: "Every Wednesday" },
       { name: "Dr. Nahush Patil", schedule: "1st & 3rd Friday" },
@@ -32,12 +35,14 @@ const specialists = [
   },
   {
     category: "Uro Surgeon",
+    image: "https://images.unsplash.com/photo-1631651363531-fd29aec4cb5c?q=80&w=800&auto=format&fit=crop",
     doctors: [
       { name: "Dr. Narsingh Mane", schedule: "Every Wednesday & Saturday" }
     ]
   },
   {
     category: "Nephrologist",
+    image: "https://images.unsplash.com/photo-1631651363531-fd29aec4cb5c?q=80&w=800&auto=format&fit=crop",
     doctors: [
       { name: "Dr. Pratik Shete", schedule: "Every Saturday" },
       { name: "Dr. Nagesh Aghor", schedule: "2nd Wednesday" },
@@ -46,6 +51,7 @@ const specialists = [
   },
   {
     category: "Other Specialists",
+    image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=800&auto=format&fit=crop",
     doctors: [
       { name: "Dr. Ashutosh Sonwane", specialty: "Thyroid", schedule: "1st Sunday" },
       { name: "Dr. Ashutosh Aher", specialty: "Vascular Surgeon", schedule: "2nd Tuesday" },
@@ -72,7 +78,7 @@ const Specialists = () => {
 
         <div className="specialists-grid">
           {specialists.map((group, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               className="specialist-category-card"
               initial={{ opacity: 0, y: 30 }}
@@ -80,8 +86,11 @@ const Specialists = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="category-header">
-                <h3>{group.category}</h3>
+              <div className="category-image-wrapper">
+                <img src={group.image} alt={group.category} className="category-img" />
+                <div className="category-img-overlay">
+                  <h3>{group.category}</h3>
+                </div>
               </div>
               <div className="specialist-list">
                 {group.doctors.map((doc, idx) => (

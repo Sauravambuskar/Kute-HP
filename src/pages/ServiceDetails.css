@@ -201,6 +201,189 @@
   font-family: var(--font-heading);
 }
 
+/* ── Stats Bar ── */
+.sd-stats-bar {
+  background: var(--clr-primary);
+  padding: 2rem 0;
+}
+
+.sd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.sd-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.5rem;
+}
+
+.sd-stat-value {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-family: var(--font-heading);
+  color: #fff;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.sd-stat-label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Extra images strip ── */
+.sd-extra-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.875rem;
+  margin: 2rem 0;
+}
+
+.sd-extra-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ── Section generic wrapper ── */
+.sd-section {
+  margin-top: 2.5rem;
+}
+
+.sd-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sd-section-header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.sd-section-icon {
+  color: var(--clr-text-muted);
+  flex-shrink: 0;
+}
+
+/* ── Procedures grid ── */
+.sd-procedures-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.sd-procedure-card {
+  background: var(--clr-surface-alt);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: var(--transition-smooth);
+}
+
+.sd-procedure-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.sd-procedure-card h4 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--clr-primary);
+  margin-bottom: 0.5rem;
+}
+
+.sd-procedure-card p {
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+  line-height: 1.65;
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+/* ── Conditions list ── */
+.sd-conditions-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+
+.sd-conditions-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--clr-surface-alt);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+.cond-icon {
+  color: #666;
+  flex-shrink: 0;
+}
+
+/* ── Why choose us ── */
+.sd-why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.sd-why-card {
+  position: relative;
+  background: var(--clr-surface);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.sd-why-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+  transform: translateY(-3px);
+}
+
+.sd-why-number {
+  display: block;
+  font-size: 2.8rem;
+  font-family: var(--font-heading);
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+.sd-why-card h4 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--clr-primary);
+  margin-bottom: 0.5rem;
+}
+
+.sd-why-card p {
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+  line-height: 1.65;
+  font-family: var(--font-body);
+  margin: 0;
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .service-details-hero {
@@ -239,5 +422,23 @@
 
   .booking-card {
     padding: 1.5rem;
+  }
+
+  .sd-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sd-procedures-grid,
+  .sd-conditions-list,
+  .sd-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sd-extra-images {
+    grid-template-columns: 1fr;
+  }
+
+  .sd-extra-img {
+    height: 170px;
   }
 }

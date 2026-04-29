@@ -1,0 +1,216 @@
+<!-- ============================================================
+   KUTE HOSPITAL — ABOUT PAGE
+   Paste this ENTIRE block into Elementor > HTML Widget
+   Header & Footer are handled by Elementor Theme Builder
+   ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+.kh-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+.kh-wrap { font-family: 'Inter', sans-serif; color: #1a2332; --navy:#0d1b2a; --teal:#0ea5e9; --gold:#c19f62; --light-bg:#f0f6ff; --muted:#64748b; --radius:16px; --shadow:0 4px 24px rgba(14,165,233,.10); }
+
+.kh-section { padding: 80px 0; }
+.kh-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.kh-text-center { text-align: center; }
+.kh-subtitle { display:inline-block; background:linear-gradient(135deg,#0ea5e9,#c19f62); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.kh-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); color:var(--navy); line-height:1.2; margin-bottom:16px; }
+.kh-accent { color:var(--teal); }
+.kh-lead { color:var(--muted); font-size:1.05rem; max-width:640px; margin:0 auto 40px; line-height:1.7; }
+
+/* ── PAGE HERO ── */
+.kh-page-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+  padding: 80px 0 60px; text-align: center;
+}
+.kh-page-hero h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.2rem,5vw,3.5rem); color:#fff; margin-bottom:16px; }
+.kh-page-hero p { color:#94a3b8; font-size:1.05rem; max-width:540px; margin:0 auto; line-height:1.7; }
+.kh-breadcrumb { display:flex; justify-content:center; gap:8px; align-items:center; color:#64748b; font-size:.85rem; margin-bottom:20px; }
+.kh-breadcrumb a { color:#0ea5e9; text-decoration:none; }
+
+/* ── STORY SECTION ── */
+.kh-about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+@media(max-width:768px){ .kh-about-grid{ grid-template-columns:1fr; gap:40px; } }
+.kh-about-img-wrap { position:relative; }
+.kh-about-img { width:100%; border-radius:24px; object-fit:cover; box-shadow:0 20px 60px rgba(14,165,233,.15); }
+.kh-float-card {
+  position:absolute; bottom:24px; left:24px;
+  background:rgba(13,27,42,.88); backdrop-filter:blur(16px);
+  border:1px solid rgba(14,165,233,.3); border-radius:14px; padding:16px 24px; color:#fff; text-align:center;
+}
+.kh-float-card .year { font-size:2rem; font-weight:800; color:var(--teal); display:block; }
+.kh-float-card .lbl { font-size:.75rem; color:#94a3b8; margin-top:2px; }
+.kh-about-text p { color:var(--muted); line-height:1.8; margin-bottom:16px; }
+
+/* ── VALUES ── */
+.kh-values-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+@media(max-width:480px){ .kh-values-row{ grid-template-columns:1fr; } }
+.kh-value-box { background:var(--light-bg); border-radius:12px; padding:20px; border-left:3px solid var(--teal); }
+.kh-value-box h4 { font-weight:700; color:var(--navy); margin-bottom:6px; }
+.kh-value-box p { font-size:.85rem; color:var(--muted); line-height:1.5; }
+
+/* ── CORE VALUES CARDS ── */
+.kh-core { background:var(--light-bg); }
+.kh-core-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin-top:48px; }
+.kh-core-card {
+  background:#fff; border-radius:var(--radius); padding:32px; text-align:center;
+  box-shadow:var(--shadow); border:1px solid rgba(14,165,233,.08);
+  transition:transform .3s, box-shadow .3s; position:relative;
+}
+.kh-core-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(14,165,233,.18); }
+.kh-cv-num { font-size:3rem; font-weight:800; color:rgba(14,165,233,.12); font-family:'Instrument Serif',serif; line-height:1; margin-bottom:8px; }
+.kh-cv-icon { font-size:2rem; margin-bottom:16px; }
+.kh-core-card h4 { font-weight:700; color:var(--navy); margin-bottom:10px; font-size:1.05rem; }
+.kh-core-card p { font-size:.88rem; color:var(--muted); line-height:1.6; }
+
+/* ── STATS BANNER ── */
+.kh-stats-bar { background:linear-gradient(135deg,var(--navy),#1e3a5f); padding:60px 0; }
+.kh-stats-row { display:flex; flex-wrap:wrap; justify-content:center; gap:0; }
+.kh-stat-item { text-align:center; padding:24px 48px; border-right:1px solid rgba(255,255,255,.1); }
+.kh-stat-item:last-child { border-right:none; }
+.kh-stat-item h3 { font-family:'Instrument Serif',serif; font-size:3rem; font-weight:800; color:var(--teal); margin-bottom:4px; }
+.kh-stat-item p { color:#94a3b8; font-size:.85rem; }
+@media(max-width:600px){ .kh-stat-item{ border-right:none; border-bottom:1px solid rgba(255,255,255,.1); width:50%; } }
+
+/* ── TEAM / DOCTOR HIGHLIGHT ── */
+.kh-doctor-section { background:#fff; }
+.kh-doctor-card {
+  display:grid; grid-template-columns:380px 1fr; gap:56px; align-items:center;
+  background:var(--light-bg); border-radius:24px; overflow:hidden; box-shadow:var(--shadow);
+}
+@media(max-width:768px){ .kh-doctor-card{ grid-template-columns:1fr; } }
+.kh-doctor-img { width:100%; height:420px; object-fit:cover; object-position:top; }
+.kh-doctor-info { padding:40px 40px 40px 0; }
+@media(max-width:768px){ .kh-doctor-info{ padding:32px; } }
+.kh-doctor-info .kh-subtitle { margin-bottom:8px; }
+.kh-doctor-info h2 { font-family:'Instrument Serif',serif; font-size:2rem; color:var(--navy); margin-bottom:6px; }
+.kh-doctor-tag { display:inline-block; background:rgba(14,165,233,.12); color:var(--teal); font-size:.8rem; font-weight:600; padding:4px 14px; border-radius:999px; margin-bottom:16px; }
+.kh-doctor-info p { color:var(--muted); line-height:1.75; margin-bottom:16px; }
+.kh-qual-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+.kh-qual-list li { display:flex; align-items:flex-start; gap:10px; font-size:.9rem; color:var(--muted); }
+.kh-qual-list li::before { content:"✓"; color:var(--teal); font-weight:700; flex-shrink:0; }
+</style>
+
+<div class="kh-wrap">
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="kh-page-hero">
+    <div class="kh-container">
+      <div class="kh-breadcrumb"><a href="/">Home</a> / About Us</div>
+      <span class="kh-subtitle">Our Story</span>
+      <h1>About <span style="color:#0ea5e9;font-style:italic;">Kute Hospital</span></h1>
+      <p>A trusted name in healthcare — bringing advanced multispecialty care to Sangamner since 2010.</p>
+    </div>
+  </section>
+
+  <!-- ═══ STORY SECTION ═══ -->
+  <section class="kh-section" style="background:#fff;">
+    <div class="kh-container">
+      <div class="kh-about-grid">
+        <div class="kh-about-img-wrap">
+          <img class="kh-about-img"
+            src="https://images.unsplash.com/photo-1551076805-e18690c5e561?q=80&w=900&auto=format&fit=crop"
+            alt="Kute Hospital Medical Team">
+          <div class="kh-float-card">
+            <span class="year">2010</span>
+            <span class="lbl">Founded · Serving Rural Communities</span>
+          </div>
+        </div>
+        <div class="kh-about-text">
+          <span class="kh-subtitle">Our Journey</span>
+          <h2 class="kh-title">Committed to <span class="kh-accent">Excellence</span></h2>
+          <p>Welcome to Kute Hospital, inspired by the vision of Mr. Bhausaheb Damodar Kute. His dedication to improving community health laid the foundation for our Hospital &amp; Dr. Pradeep Kute's leadership plays a significant role in the hospital's development.</p>
+          <p>Established on June 13, 2010, Kute Hospital and Laparoscopy Centre aims to bring advanced medical care to rural areas, providing treatments typically found only in big cities. Our mission is to serve communities with compassion and excellence.</p>
+          <p>Over 14+ years, we have grown into a comprehensive multispecialty facility offering emergency care, advanced laparoscopic surgery, orthopaedics, cardiology, and much more — all under one roof in Sangamner.</p>
+          <div class="kh-values-row">
+            <div class="kh-value-box">
+              <h4>🎯 Our Mission</h4>
+              <p>To be the best Multispeciality &amp; tertiary care center in India imparting high quality care.</p>
+            </div>
+            <div class="kh-value-box">
+              <h4>💡 Our Vision</h4>
+              <p>Quality Treatment at rational cost. Providing all Services Under one roof with continuous improvement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS BAR ═══ -->
+  <div class="kh-stats-bar">
+    <div class="kh-container">
+      <div class="kh-stats-row">
+        <div class="kh-stat-item"><h3>14+</h3><p>Years of Excellence</p></div>
+        <div class="kh-stat-item"><h3>24/7</h3><p>Emergency Services</p></div>
+        <div class="kh-stat-item"><h3>10+</h3><p>Visiting Specialists</p></div>
+        <div class="kh-stat-item"><h3>30+</h3><p>Insurance Partners</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CORE VALUES ═══ -->
+  <section class="kh-section kh-core">
+    <div class="kh-container">
+      <div class="kh-text-center">
+        <span class="kh-subtitle">What Guides Us</span>
+        <h2 class="kh-title">Our Core <span class="kh-accent">Values</span></h2>
+        <p class="kh-lead">The principles that drive every decision we make and every patient we serve.</p>
+      </div>
+      <div class="kh-core-grid">
+        <div class="kh-core-card">
+          <div class="kh-cv-num">01</div>
+          <div class="kh-cv-icon">❤️</div>
+          <h4>Compassion</h4>
+          <p>Understanding and caring for patients by attentive listening and putting ourselves in their shoes.</p>
+        </div>
+        <div class="kh-core-card">
+          <div class="kh-cv-num">02</div>
+          <div class="kh-cv-icon">⚡</div>
+          <h4>Progression</h4>
+          <p>Constantly learning new trends and adopting advanced technologies in the medical field.</p>
+        </div>
+        <div class="kh-core-card">
+          <div class="kh-cv-num">03</div>
+          <div class="kh-cv-icon">🛡️</div>
+          <h4>Respect</h4>
+          <p>Treating everyone we meet with the dignity and respect they deserve, patient or colleague.</p>
+        </div>
+        <div class="kh-core-card">
+          <div class="kh-cv-num">04</div>
+          <div class="kh-cv-icon">🎯</div>
+          <h4>Courage</h4>
+          <p>Having the courage to do what is right, knowing it is for the better good of the patient ahead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOCTOR HIGHLIGHT ═══ -->
+  <section class="kh-section kh-doctor-section">
+    <div class="kh-container">
+      <div class="kh-text-center" style="margin-bottom:48px;">
+        <span class="kh-subtitle">Leadership</span>
+        <h2 class="kh-title">Meet Our <span class="kh-accent">Founder</span></h2>
+      </div>
+      <div class="kh-doctor-card">
+        <img class="kh-doctor-img"
+          src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=700&auto=format&fit=crop"
+          alt="Dr. Pradeep Kute">
+        <div class="kh-doctor-info">
+          <span class="kh-subtitle">Founder &amp; Chief Surgeon</span>
+          <h2>Dr. Pradeep Kute</h2>
+          <span class="kh-doctor-tag">MS (General Surgery) · Laparoscopic Surgeon</span>
+          <p>Dr. Pradeep Kute is a highly experienced general and laparoscopic surgeon with over 14 years of practice in Sangamner. His vision has been to bridge the gap between urban medical excellence and rural healthcare access.</p>
+          <p>Under his leadership, Kute Hospital has grown into a full multispecialty centre with visiting super-specialists, advanced diagnostics, and 24/7 emergency services.</p>
+          <ul class="kh-qual-list">
+            <li>500+ successful laparoscopic procedures performed</li>
+            <li>Expert in emergency, trauma &amp; cancer surgery</li>
+            <li>Pioneer of affordable specialist healthcare in Sangamner</li>
+            <li>Empanelled with 30+ TPA &amp; insurance providers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .kh-wrap -->

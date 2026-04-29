@@ -6,6 +6,7 @@ import './Hero.css';
 
 const Hero = () => {
   const { openModal } = useAppointment();
+
   return (
     <section id="home" className="hero-section">
       <div className="hero-background">
@@ -14,35 +15,46 @@ const Hero = () => {
           alt="Kute Hospital Building"
           className="hero-image"
         />
-        <div className="hero-gradient"></div>
+        <div className="hero-gradient" />
       </div>
 
       <div className="container hero-content">
-        <motion.div 
+        <motion.div
           className="hero-text-wrapper"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 44 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.85, delay: 0.15 }}
         >
-          <div className="section-subtitle" style={{ background: 'rgba(255,255,255,0.1)', color: '#FFF', backdropFilter: 'blur(10px)' }}>
-            Trusted Healthcare
+          {/* Live badge */}
+          <div className="hero-badge">
+            <span className="hero-badge-dot" />
+            Trusted Healthcare Since 2010
           </div>
+
+          {/* Headline */}
           <h1 className="hero-title">
-            Caring for You,<br/><span className="text-accent" style={{ color: 'var(--clr-accent)' }}>Always.</span>
+            Caring for You,<br />
+            <span className="hero-accent">Always.</span>
           </h1>
+
+          {/* Sub-copy */}
           <p className="hero-description">
-            A Trusted Name in Healthcare. We provide world-class treatments, quick appointments, and timely solutions with the highest level of care.
+            Kute Hospital & Laparoscopy Centre — bringing advanced multispecialty
+            care to Sangamner. World-class treatments, quick appointments, and
+            compassionate support when it matters most.
           </p>
-          
+
+          {/* CTAs */}
           <div className="hero-actions">
-            <button className="btn btn-primary" style={{ background: '#FFF', color: 'var(--clr-primary)' }} onClick={openModal}>
+            <button className="hero-btn-primary" onClick={openModal}>
               Book Appointment <ArrowRight size={18} />
             </button>
-            <a href="tel:+918888882225" className="btn btn-outline" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#FFF' }}>
-              <PhoneCall size={18} /> Emergency Contact 
+            <a href="tel:+918888882225" className="hero-btn-outline">
+              <PhoneCall size={18} /> Emergency: +91 88888 82225
             </a>
           </div>
 
+          {/* Stats row */}
           <div className="hero-stats">
             <div className="stat-card">
               <h3>14+</h3>
@@ -55,6 +67,10 @@ const Hero = () => {
             <div className="stat-card">
               <h3>10+</h3>
               <p>Specialist Doctors</p>
+            </div>
+            <div className="stat-card">
+              <h3>30+</h3>
+              <p>Insurance Partners</p>
             </div>
           </div>
         </motion.div>

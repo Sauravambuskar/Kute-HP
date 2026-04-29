@@ -9,7 +9,21 @@
       "Bash(curl -o kutedr1.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/kutedr1.png\")",
       "Bash(curl -o kute-ss345.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-345.png\")",
       "Bash(curl -o kute-ss351.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-351.png\")",
-      "Bash(curl -o kute-ss359.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-359.png\")"
+      "Bash(curl -o kute-ss359.png \"https://www.kutehospital.com/wp-content/uploads/2026/02/Screenshot-359.png\")",
+      "Bash(pnpm install *)",
+      "Bash(pnpm store *)",
+      "Bash(pnpm add *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(git merge *)",
+      "Bash(npx vite *)",
+      "Bash(pnpm build *)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:images.unsplash.com)"
     ]
   }
 }

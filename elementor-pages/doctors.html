@@ -1,0 +1,286 @@
+<!-- ============================================================
+   KUTE HOSPITAL — DOCTORS / SPECIALISTS PAGE
+   Paste this ENTIRE block into Elementor > HTML Widget
+   Header & Footer are handled by Elementor Theme Builder
+   ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+.kh-wrap * { box-sizing:border-box; margin:0; padding:0; }
+.kh-wrap { font-family:'Inter',sans-serif; color:#1a2332; --navy:#0d1b2a; --teal:#0ea5e9; --gold:#c19f62; --light-bg:#f0f6ff; --muted:#64748b; --radius:16px; --shadow:0 4px 24px rgba(14,165,233,.10); }
+
+.kh-section { padding:80px 0; }
+.kh-container { max-width:1180px; margin:0 auto; padding:0 24px; }
+.kh-text-center { text-align:center; }
+.kh-subtitle { display:inline-block; background:linear-gradient(135deg,#0ea5e9,#c19f62); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.kh-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); color:var(--navy); line-height:1.2; margin-bottom:16px; }
+.kh-accent { color:var(--teal); }
+.kh-lead { color:var(--muted); font-size:1.05rem; max-width:640px; margin:0 auto 40px; line-height:1.7; }
+
+/* ── PAGE HERO ── */
+.kh-page-hero { background:linear-gradient(135deg,var(--navy) 0%,#1e3a5f 100%); padding:80px 0 60px; text-align:center; }
+.kh-page-hero h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.2rem,5vw,3.5rem); color:#fff; margin-bottom:16px; }
+.kh-page-hero p { color:#94a3b8; font-size:1.05rem; max-width:540px; margin:0 auto; line-height:1.7; }
+.kh-breadcrumb { display:flex; justify-content:center; gap:8px; align-items:center; color:#64748b; font-size:.85rem; margin-bottom:20px; }
+.kh-breadcrumb a { color:#0ea5e9; text-decoration:none; }
+
+/* ── LEAD DOCTOR CARD ── */
+.kh-lead-doctor {
+  display:grid; grid-template-columns:360px 1fr; gap:56px; align-items:center;
+  background:var(--light-bg); border-radius:24px; overflow:hidden;
+  box-shadow:var(--shadow); margin-bottom:72px;
+}
+@media(max-width:768px){ .kh-lead-doctor{ grid-template-columns:1fr; } }
+.kh-lead-img { width:100%; height:440px; object-fit:cover; object-position:top; }
+.kh-lead-info { padding:40px 40px 40px 0; }
+@media(max-width:768px){ .kh-lead-info{ padding:32px; } }
+.kh-lead-info h2 { font-family:'Instrument Serif',serif; font-size:2.2rem; color:var(--navy); margin-bottom:6px; }
+.kh-doc-tag { display:inline-block; background:rgba(14,165,233,.12); color:var(--teal); font-size:.8rem; font-weight:600; padding:4px 14px; border-radius:999px; margin-bottom:16px; }
+.kh-lead-info p { color:var(--muted); line-height:1.8; margin-bottom:14px; }
+.kh-qual-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+.kh-qual-list li { display:flex; align-items:flex-start; gap:10px; font-size:.9rem; color:var(--muted); }
+.kh-qual-list li::before { content:"✓"; color:var(--teal); font-weight:700; flex-shrink:0; }
+
+/* ── SPECIALIST CATEGORY CARDS ── */
+.kh-spec-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; margin-top:48px; }
+.kh-spec-card { background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(14,165,233,.08); transition:transform .3s,box-shadow .3s; }
+.kh-spec-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(14,165,233,.18); }
+.kh-spec-img-wrap { position:relative; height:180px; overflow:hidden; }
+.kh-spec-img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.kh-spec-card:hover .kh-spec-img { transform:scale(1.05); }
+.kh-spec-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(13,27,42,.85) 0%,transparent 60%); display:flex; align-items:flex-end; padding:16px 20px; }
+.kh-spec-overlay h3 { color:#fff; font-size:1.05rem; font-weight:700; }
+.kh-doc-list { padding:20px; display:flex; flex-direction:column; gap:0; }
+.kh-doc-item { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px solid rgba(14,165,233,.07); }
+.kh-doc-item:last-child { border-bottom:none; }
+.kh-doc-item-left h4 { font-size:.92rem; font-weight:600; color:var(--navy); margin-bottom:3px; }
+.kh-spec-tag-sm { font-size:.72rem; background:rgba(14,165,233,.1); color:var(--teal); padding:2px 8px; border-radius:999px; font-weight:600; }
+.kh-schedule { display:flex; align-items:center; gap:6px; font-size:.78rem; color:var(--muted); white-space:nowrap; flex-shrink:0; }
+
+/* ── CTA ── */
+.kh-cta { background:linear-gradient(135deg,var(--navy),#1e3a5f); padding:72px 0; text-align:center; }
+.kh-cta h2 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:16px; }
+.kh-cta p { color:#94a3b8; font-size:1.05rem; margin-bottom:36px; max-width:500px; margin-left:auto; margin-right:auto; }
+.kh-cta-btns { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+.kh-btn-primary { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#0ea5e9,#0284c7); color:#fff; font-weight:700; font-size:.95rem; padding:14px 28px; border-radius:999px; border:none; cursor:pointer; text-decoration:none; transition:transform .2s,box-shadow .2s; box-shadow:0 4px 20px rgba(14,165,233,.4); }
+.kh-btn-primary:hover { transform:translateY(-2px); color:#fff; }
+.kh-btn-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; color:#fff; font-weight:600; font-size:.95rem; padding:14px 28px; border-radius:999px; border:1px solid rgba(255,255,255,.4); text-decoration:none; transition:all .2s; }
+.kh-btn-outline:hover { background:rgba(255,255,255,.1); color:#fff; }
+</style>
+
+<div class="kh-wrap">
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="kh-page-hero">
+    <div class="kh-container">
+      <div class="kh-breadcrumb"><a href="/">Home</a> / Our Doctors</div>
+      <span class="kh-subtitle">Expert Care</span>
+      <h1>Meet Our <span style="color:#0ea5e9;font-style:italic;">Specialists</span></h1>
+      <p>We bring highly experienced super-specialty doctors right to Sangamner — no need to travel to the city.</p>
+    </div>
+  </section>
+
+  <!-- ═══ LEAD DOCTOR ═══ -->
+  <section class="kh-section" style="background:#fff;">
+    <div class="kh-container">
+      <div class="kh-text-center" style="margin-bottom:48px;">
+        <span class="kh-subtitle">Chief Surgeon</span>
+        <h2 class="kh-title">Our <span class="kh-accent">Founder &amp; Lead Doctor</span></h2>
+      </div>
+      <div class="kh-lead-doctor">
+        <img class="kh-lead-img"
+          src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=700&auto=format&fit=crop"
+          alt="Dr. Pradeep Kute">
+        <div class="kh-lead-info">
+          <span class="kh-subtitle">Founder &amp; Chief Surgeon</span>
+          <h2>Dr. Pradeep Kute</h2>
+          <span class="kh-doc-tag">MS (General Surgery) · Laparoscopic Surgeon</span>
+          <p>Dr. Pradeep Kute is a highly experienced general and laparoscopic surgeon with over 14 years of practice in Sangamner. His vision has been to bridge the gap between urban medical excellence and rural healthcare access.</p>
+          <p>He performs a wide range of surgeries including laparoscopic cholecystectomy, hernia repair, appendectomy, colorectal, cancer and emergency surgeries with excellent outcomes.</p>
+          <ul class="kh-qual-list">
+            <li>500+ successful laparoscopic procedures performed</li>
+            <li>Expert in emergency, trauma &amp; cancer surgery</li>
+            <li>Available for consultations Monday – Saturday</li>
+            <li>Empanelled with 30+ TPA &amp; insurance providers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══ VISITING SPECIALISTS ═══ -->
+      <div class="kh-text-center" style="margin-bottom:48px;">
+        <span class="kh-subtitle">Visiting Super-Specialists</span>
+        <h2 class="kh-title">Specialist <span class="kh-accent">Doctor Visits</span></h2>
+        <p class="kh-lead">Expert doctors from leading tertiary care centres visit Kute Hospital regularly — bringing world-class care to Sangamner.</p>
+      </div>
+
+      <div class="kh-spec-grid">
+
+        <!-- Brain & Spine -->
+        <div class="kh-spec-card">
+          <div class="kh-spec-img-wrap">
+            <img class="kh-spec-img" src="https://images.unsplash.com/photo-1516069677018-378515003435?q=80&w=800&auto=format&fit=crop" alt="Brain & Spine Surgeon">
+            <div class="kh-spec-overlay"><h3>Brain &amp; Spine Surgeon</h3></div>
+          </div>
+          <div class="kh-doc-list">
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Uday Bade</h4></div>
+              <div class="kh-schedule">📅 Every Tue, Fri &amp; Sun</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Anil Jadhav</h4></div>
+              <div class="kh-schedule">📅 1st &amp; 3rd Friday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Samir Phutane</h4></div>
+              <div class="kh-schedule">📅 2nd &amp; 4th Tuesday</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Surgical Gastroenterologist -->
+        <div class="kh-spec-card">
+          <div class="kh-spec-img-wrap">
+            <img class="kh-spec-img" src="https://images.unsplash.com/photo-1551076805-e18690c5e561?q=80&w=800&auto=format&fit=crop" alt="Surgical Gastroenterologist">
+            <div class="kh-spec-overlay"><h3>Surgical Gastroenterologist</h3></div>
+          </div>
+          <div class="kh-doc-list">
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Prakash Valse</h4></div>
+              <div class="kh-schedule">📅 On Call</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Prashant Patil</h4></div>
+              <div class="kh-schedule">📅 3rd Monday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Manoj Bhambre</h4></div>
+              <div class="kh-schedule">📅 On Call</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neurosurgeon -->
+        <div class="kh-spec-card">
+          <div class="kh-spec-img-wrap">
+            <img class="kh-spec-img" src="https://images.unsplash.com/photo-1579154491781-5e199df316aa?q=80&w=800&auto=format&fit=crop" alt="Neurosurgeon">
+            <div class="kh-spec-overlay"><h3>Neurosurgeon</h3></div>
+          </div>
+          <div class="kh-doc-list">
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Vijay Ghuge</h4></div>
+              <div class="kh-schedule">📅 Every Wednesday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Nahush Patil</h4></div>
+              <div class="kh-schedule">📅 1st &amp; 3rd Friday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Ninad Thorat</h4></div>
+              <div class="kh-schedule">📅 1st &amp; 3rd Saturday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Dhananjay Duberkar</h4></div>
+              <div class="kh-schedule">📅 2nd Wednesday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Sumant Biyani</h4></div>
+              <div class="kh-schedule">📅 2nd &amp; 4th Friday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Amit Yewale</h4></div>
+              <div class="kh-schedule">📅 2nd &amp; 4th Saturday</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Uro Surgeon -->
+        <div class="kh-spec-card">
+          <div class="kh-spec-img-wrap">
+            <img class="kh-spec-img" src="https://images.unsplash.com/photo-1631651363531-fd29aec4cb5c?q=80&w=800&auto=format&fit=crop" alt="Uro Surgeon">
+            <div class="kh-spec-overlay"><h3>Uro Surgeon</h3></div>
+          </div>
+          <div class="kh-doc-list">
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Narsingh Mane</h4></div>
+              <div class="kh-schedule">📅 Every Wed &amp; Sat</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nephrologist -->
+        <div class="kh-spec-card">
+          <div class="kh-spec-img-wrap">
+            <img class="kh-spec-img" src="https://images.unsplash.com/photo-1631651363531-fd29aec4cb5c?q=80&w=800&auto=format&fit=crop" alt="Nephrologist">
+            <div class="kh-spec-overlay"><h3>Nephrologist</h3></div>
+          </div>
+          <div class="kh-doc-list">
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Pratik Shete</h4></div>
+              <div class="kh-schedule">📅 Every Saturday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Nagesh Aghor</h4></div>
+              <div class="kh-schedule">📅 2nd Wednesday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Prakash Ugale</h4></div>
+              <div class="kh-schedule">📅 3rd Wednesday</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Specialists -->
+        <div class="kh-spec-card">
+          <div class="kh-spec-img-wrap">
+            <img class="kh-spec-img" src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=800&auto=format&fit=crop" alt="Other Specialists">
+            <div class="kh-spec-overlay"><h3>Other Specialists</h3></div>
+          </div>
+          <div class="kh-doc-list">
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Ashutosh Sonwane</h4><span class="kh-spec-tag-sm">Thyroid</span></div>
+              <div class="kh-schedule">📅 1st Sunday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Ashutosh Aher</h4><span class="kh-spec-tag-sm">Vascular Surgeon</span></div>
+              <div class="kh-schedule">📅 2nd Tuesday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Satish Kapadnis</h4><span class="kh-spec-tag-sm">Pediatric Surgeon</span></div>
+              <div class="kh-schedule">📅 2nd &amp; 4th Wed</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Jyoti Ugale</h4><span class="kh-spec-tag-sm">Psychiatrist</span></div>
+              <div class="kh-schedule">📅 4th Thursday</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Vinayak Shenge</h4><span class="kh-spec-tag-sm">Cancer Surgeon</span></div>
+              <div class="kh-schedule">📅 On Call</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Nikhil Rahangdale</h4><span class="kh-spec-tag-sm">Orthopedic</span></div>
+              <div class="kh-schedule">📅 On Call</div>
+            </div>
+            <div class="kh-doc-item">
+              <div class="kh-doc-item-left"><h4>Dr. Lalit Darle</h4><span class="kh-spec-tag-sm">Plastic Surgeon</span></div>
+              <div class="kh-schedule">📅 Every Saturday</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end kh-spec-grid -->
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="kh-cta">
+    <div class="kh-container">
+      <h2>Book a Specialist Consultation</h2>
+      <p>Call us to confirm the schedule and book your appointment with any of our visiting specialists.</p>
+      <div class="kh-cta-btns">
+        <a href="/book-appointment" class="kh-btn-primary">Book Appointment ➜</a>
+        <a href="tel:+918888882225" class="kh-btn-outline">📞 +91 88888 82225</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .kh-wrap -->

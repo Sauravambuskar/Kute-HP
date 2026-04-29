@@ -6,9 +6,6 @@ import iconMap from '../utils/iconMap';
 import './Services.css';
 
 const Services = () => {
-  // Only show first 4 services on the home page preview
-  const previewServices = servicesData.slice(0, 4);
-
   return (
     <section id="services" className="services-section">
       <div className="container">
@@ -39,23 +36,38 @@ const Services = () => {
         </div>
 
         <div className="services-grid">
-          {previewServices.map((service, index) => (
+          {servicesData.map((service, index) => (
             <motion.div
               key={service.id}
               className="service-card"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
             >
-              <div className="service-icon-wrapper">
-                {iconMap[service.iconName]}
+              {/* Service image */}
+              <div className="service-img-wrap">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="service-img"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <div className="service-img-overlay">
+                  <div className="service-icon-badge">
+                    {iconMap[service.iconName]}
+                  </div>
+                </div>
               </div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-desc">{service.shortDesc}</p>
-              <Link to={`/services/${service.id}`} className="service-link">
-                Learn More <ArrowRight size={16} />
-              </Link>
+
+              {/* Card body */}
+              <div className="service-body">
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-desc">{service.shortDesc}</p>
+                <Link to={`/services/${service.id}`} className="service-link">
+                  Learn More <ArrowRight size={16} />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
+import Gallery from '../components/Gallery';
 import Doctor from '../components/Doctor';
 import Specialists from '../components/Specialists';
 import Insurance from '../components/Insurance';
@@ -17,6 +18,7 @@ const Home = () => {
       <Hero />
       <About />
       <Services />
+      <Gallery />
       <Doctor />
       <Specialists />
       <Insurance />
